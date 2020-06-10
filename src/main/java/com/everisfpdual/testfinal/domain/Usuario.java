@@ -20,21 +20,7 @@ public class Usuario implements Serializable{
 	@Column(name="id")
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int id;
-	
-	@NotBlank
-    @Column(unique=true, name="email")
-	private String email;
-	
-	@NotBlank
-	@Column(name="firstname")
-	private String firstname;
-	
-	@NotBlank
-	@Column(name="lastname")
-	private String lastname;
-	
-	@NotBlank
-	
+
 	@NotBlank
     @Column(unique=true, name="email")
 	private String email;
