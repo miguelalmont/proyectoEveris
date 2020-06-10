@@ -57,12 +57,21 @@ public class TestFinalServiceImpl implements TestFinalService{
 
 			for (String[] object: reader.readAll()) {
 				Usuario user = new Usuario();
-				
+				user.setEmail(object[0]);
+				user.setFirstname(object[1]);
+				user.setLastname(object[2]);
+				user.setPassword(object[3]);
+				usuarios.add(user);
 			}       
 			
-			usuarioRepository.saveAll(usuarios);
+			for (Usuario usuario : usuarios) {
+				usuarioRepository.save(usuario);
+			}
+			usuarioRepository.flush();
+			
 		} catch (Exception e) {
 			result = false;
+			System.err.println(e);
 		}		
 		
 		return result;
